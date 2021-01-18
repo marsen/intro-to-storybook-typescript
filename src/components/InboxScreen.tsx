@@ -8,7 +8,7 @@ export class InboxScreenArgs {
   error:string | undefined 
 }
 
-export function PureInboxScreen(args:InboxScreenArgs) {
+export function InboxScreen(args:InboxScreenArgs) {
   if (args.error) {
     return (
       <div className="page lists-show">
@@ -33,4 +33,4 @@ export function PureInboxScreen(args:InboxScreenArgs) {
   );
 }
 
-export default connect((props:InboxScreenArgs) => (props))(PureInboxScreen);
+export default connect((props:InboxScreenArgs) => (props))(InboxScreen);
