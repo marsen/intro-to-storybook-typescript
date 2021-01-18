@@ -1,4 +1,4 @@
- // src/components/TaskList.tsx
+// src/components/TaskList.tsx
 import React from 'react';
 import Task, { TaskItem, TaskState } from './Task';
 import { connect } from 'react-redux';
@@ -72,4 +72,4 @@ export default connect(
   dispatch => ({
     onArchiveTask: (id: string) => dispatch(archiveTask(id)),
     onPinTask: (id: string) => dispatch(pinTask(id)),
-  }))(TaskList);
+}))(TaskList);
