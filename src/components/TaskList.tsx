@@ -2,7 +2,7 @@
 import React from 'react';
 import Task, { TaskItem, TaskState } from './Task';
 import { connect } from 'react-redux';
-//import { archiveTask, pinTask } from '../lib/redux';
+import { archiveTask, pinTask } from '../lib/redux';
 
 export interface TaskListArgs {
   loading?:boolean;
@@ -68,5 +68,8 @@ export function TaskList(props:TaskListArgs) {
 export default connect(
   (props:TaskListArgs) => ({
     tasks: props.tasks.filter(t => t.state === TaskState.Inbox || t.state === TaskState.Pinned ),
-  })  
-)(TaskList);
+  }),
+  dispatch => ({
+    onArchiveTask: (id: string) => dispatch(archiveTask(id)),
+    onPinTask: (id: string) => dispatch(pinTask(id)),
+  }))(TaskList);
