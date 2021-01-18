@@ -11,7 +11,7 @@ export interface TaskListProps {
   onPinTask: (id:string)=>void;  
 }
 
-export function PureTaskList(props:TaskListProps) {     
+export function TaskList(props:TaskListProps) {     
   const events = { 
     onArchiveTask:props.onArchiveTask,
     onPinTask:props.onPinTask,
@@ -69,4 +69,4 @@ export default connect(
   (props:TaskListProps) => ({
     tasks: props.tasks.filter(t => t.state === TaskState.Inbox || t.state === TaskState.Pinned ),
   })  
-)(PureTaskList);
+)(TaskList);
