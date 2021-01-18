@@ -1,4 +1,4 @@
- //src/components/InboxScreen.stories.js
+//src/components/InboxScreen.stories.js
 
 import React from 'react';
 import { Provider } from 'react-redux';
