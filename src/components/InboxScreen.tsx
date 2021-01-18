@@ -1,4 +1,4 @@
-//src/components/InboxScreen.js
+//src/components/InboxScreen.tsx
 
 import React from 'react';
 import { connect } from 'react-redux';
