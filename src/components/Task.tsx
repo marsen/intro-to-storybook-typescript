@@ -1,4 +1,4 @@
-// src/components/Task.js
+// src/components/Task.tsx
 
 import React from 'react';
 
