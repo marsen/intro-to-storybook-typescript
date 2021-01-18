@@ -1,7 +1,7 @@
 // src/components/TaskList.stories.tsx
 
 import React from 'react';
-import { TaskList, TaskListProps } from './TaskList';
+import { TaskList, TaskListArgs } from './TaskList';
 import { TaskItem, TaskState } from './Task';
 import { Story } from '@storybook/react/types-6-0';
 
@@ -12,7 +12,7 @@ export default {
   excludeStories: /.*Data$/,
 };
 
-const Template:Story<TaskListProps> = args => <TaskList {...args} />
+const Template:Story<TaskListArgs> = args => <TaskList {...args} />
 
 var defaultItem:TaskItem = { 
   id:'1',
