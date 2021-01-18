@@ -1,37 +1,36 @@
-// src/components/Task.stories.js
+// src/components/Task.stories.tsx
 
 import React from 'react';
-import Task from './Task';
+import Task, { TaskItem, TaskArgs, TaskState } from './Task';
+import { Story } from '@storybook/react/types-6-0';
 
 export default {
   component: Task,
   title: 'Task',
 };
 
-const Template = args => <Task {...args} />;
+const Template:Story<TaskArgs> = args => <Task {...args} />;
+
+var defaultItem:TaskItem = { 
+  id:'1',
+  title:'Test Task',
+  state:TaskState.Inbox,
+  updatedAt: new Date(2018, 0, 1, 9, 0),
+};
 
 export const Default = Template.bind({});
-Default.args = {
-  task: {
-    id: '1',
-    title: 'Test Task',
-    state: 'TASK_INBOX',
-    updatedAt: new Date(2018, 0, 1, 9, 0),
-  },
-};
+Default.args = { item: defaultItem, };
 
 export const Pinned = Template.bind({});
-Pinned.args = {
-  task: {
-    ...Default.args.task,
-    state: 'TASK_PINNED',
-  },
-};
+var pinnedItem = Copy(defaultItem);
+pinnedItem.state=TaskState.Pinned
+Pinned.args = { item: pinnedItem };
 
 export const Archived = Template.bind({});
-Archived.args = {
-  task: {
-    ...Default.args.task,
-    state: 'TASK_ARCHIVED',
-  },
-};
+var archivedItem = Copy(defaultItem);
+archivedItem.state=TaskState.Archived;
+Archived.args = {item: archivedItem};
+
+function Copy(obj:any) {  
+  return Object.assign({},obj);
+}
